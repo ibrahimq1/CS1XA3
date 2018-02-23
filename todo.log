@@ -1,0 +1,6 @@
+ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
+test:1:Eat Lunch #TODO
+test:2:OK BYE #TODO
+test2.txt:1:Eat Lunch 2 #TODO
+test2.txt:2:OK BYE 2 #TODO
+testdir/test22.txt:1:Test 22 #TODO
