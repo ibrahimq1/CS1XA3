@@ -28,7 +28,7 @@ max=5
 
 
 
-echo "Which log file do you want to see? [Type 1,2,3 or write their names]"
+echo "Which log file do you want to see? [Type 1,2,3,q(to exit) or write their names ex: todo.log]"
 
 while [ $count -lt $max ]
 do
