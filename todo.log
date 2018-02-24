@@ -1,4 +1,6 @@
 ./testdir/test22.txt:Test 22 #TODO
+./READMEProjectAnalyze.md:	4) Puts all lines containing #TODO listing the todos in todo.log file
+./READMEProjectAnalyze.md:	### The #TODO tasks for today can be found in todo.log
 ./test:Eat Lunch #TODO
 ./test:OK BYE #TODO
 ./test2.txt:Eat Lunch 2 #TODO

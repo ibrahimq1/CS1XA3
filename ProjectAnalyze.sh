@@ -6,6 +6,11 @@ date
 echo -n "User: " ; whoami
 
 echo " "
+
+git status no
+
+
+echo " "
 echo -e "### \e[1mAny recent changes are in the changes.log file\e[0m"
 
 git diff > changes.log 

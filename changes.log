@@ -1,162 +1,220 @@
 diff --git a/ProjectAnalyze.sh b/ProjectAnalyze.sh
-index 3434a7d..fcdd672 100755
+index 75f6232..0619651 100755
 --- a/ProjectAnalyze.sh
 +++ b/ProjectAnalyze.sh
-@@ -2,13 +2,54 @@
+@@ -6,6 +6,11 @@ date
+ echo -n "User: " ; whoami
  
- clear
- 
--whoami
- date
-+echo -n "User: " ; whoami
- 
--git status
-+echo " "
-+echo -e "### \e[1mAny recent changes are in the changes.log file\e[0m"
- 
--git diff > changes.log
-+git diff > changes.log 
- 
--grep TODO -nr * > todo.log
-+echo " "
-+echo -e "### \e[1mThe #TODO tasks for today can be found in todo.log\e[0m"
-+ 
-+grep -r --exclude={\*.log,ProjectAnalyze.sh}  "#TODO" . > todo.log
- 
--find . -name "*.hs" -exec ghc -fno-code {} \; 2>> error.log
-+echo " "
-+echo -e "### \e[1mAny error in haskell files can be found in error.log\e[0m"
+ echo " "
 +
-+find  . -name "*.hs" -exec ghc -fno-code {} \; &> error.log
++git status no
++
 +
 +echo " "
+ echo -e "### \e[1mAny recent changes are in the changes.log file\e[0m"
+ 
+ git diff > changes.log 
+diff --git a/READMEProjectAnalyze.md b/READMEProjectAnalyze.md
+index 73916e0..0adf21d 100644
+--- a/READMEProjectAnalyze.md
++++ b/READMEProjectAnalyze.md
+@@ -24,9 +24,13 @@ Example :
+ 
+ 	Output:
+ 	
+-	Sat Feb 24 16:48:15 EST 2018
++	Sat Feb 24 17:34:57 EST 2018
+ 	User: ibrahimq
+ 
++	On branch master
++	Your branch is up-to-date with 'origin/master'.
++	nothing to commit, working tree clean
 +
-+
-+count=0
-+max=5
-+
-+
-+
-+echo "Which log file do you want to see? [Type 1,2,3 or write their names]"
-+
-+while [ $count -lt $max ]
-+do
-+count=$((count + 1))
-+read option
-+
-+case $option in
-+	changes|changes.log|1)
-+			vim changes.log
-+			;;
-+	todo|todo.log|2)
-+			vim todo.log
-+			;;
-+	error|error.log|3)
-+			vim error.log
-+			;;
-+	esc|exit|x|Exit|Esc|q)
-+			exit 1
-+			;;
-+	*)
-+			echo "Please enter a valid option."
-+			;;
-+esac
-+done			
-diff --git a/README.md b/README.md
-index af7ae88..1072e00 100644
---- a/README.md
-+++ b/README.md
-@@ -1 +1 @@
--# CS1XA3
-\ No newline at end of file
-+# CS1XA3
+ 	### Any recent changes are in the changes.log file
+ 
+ 	### The #TODO tasks for today can be found in todo.log
+@@ -34,6 +38,5 @@ Example :
+ 	### Any error in haskell files can be found in error.log
+ 
+ 	Which log file do you want to see? [Type 1,2,3,q(to exit) or write their names ex: todo.log]
+-
+ 	
+ 
 diff --git a/changes.log b/changes.log
-index db37770..e69de29 100644
+index cc6f30c..e69de29 100644
 --- a/changes.log
 +++ b/changes.log
-@@ -1,39 +0,0 @@
+@@ -1,162 +0,0 @@
 -diff --git a/ProjectAnalyze.sh b/ProjectAnalyze.sh
--index 8cc1526..3434a7d 100755
+-index 3434a7d..fcdd672 100755
 ---- a/ProjectAnalyze.sh
 -+++ b/ProjectAnalyze.sh
--@@ -2,6 +2,7 @@
+-@@ -2,13 +2,54 @@
 - 
 - clear
 - 
--+whoami
+--whoami
 - date
+-+echo -n "User: " ; whoami
 - 
-- git status
--@@ -10,3 +11,4 @@ git diff > changes.log
+--git status
+-+echo " "
+-+echo -e "### \e[1mAny recent changes are in the changes.log file\e[0m"
 - 
-- grep TODO -nr * > todo.log
+--git diff > changes.log
+-+git diff > changes.log 
 - 
--+find . -name "*.hs" -exec ghc -fno-code {} \; 2>> error.log
+--grep TODO -nr * > todo.log
+-+echo " "
+-+echo -e "### \e[1mThe #TODO tasks for today can be found in todo.log\e[0m"
+-+ 
+-+grep -r --exclude={\*.log,ProjectAnalyze.sh}  "#TODO" . > todo.log
+- 
+--find . -name "*.hs" -exec ghc -fno-code {} \; 2>> error.log
+-+echo " "
+-+echo -e "### \e[1mAny error in haskell files can be found in error.log\e[0m"
+-+
+-+find  . -name "*.hs" -exec ghc -fno-code {} \; &> error.log
+-+
+-+echo " "
+-+
+-+
+-+count=0
+-+max=5
+-+
+-+
+-+
+-+echo "Which log file do you want to see? [Type 1,2,3 or write their names]"
+-+
+-+while [ $count -lt $max ]
+-+do
+-+count=$((count + 1))
+-+read option
+-+
+-+case $option in
+-+	changes|changes.log|1)
+-+			vim changes.log
+-+			;;
+-+	todo|todo.log|2)
+-+			vim todo.log
+-+			;;
+-+	error|error.log|3)
+-+			vim error.log
+-+			;;
+-+	esc|exit|x|Exit|Esc|q)
+-+			exit 1
+-+			;;
+-+	*)
+-+			echo "Please enter a valid option."
+-+			;;
+-+esac
+-+done			
+-diff --git a/README.md b/README.md
+-index af7ae88..1072e00 100644
+---- a/README.md
+-+++ b/README.md
+-@@ -1 +1 @@
+--# CS1XA3
+-\ No newline at end of file
+-+# CS1XA3
 -diff --git a/changes.log b/changes.log
--index 4189614..e69de29 100644
+-index db37770..e69de29 100644
 ---- a/changes.log
 -+++ b/changes.log
--@@ -1,4 +0,0 @@
---diff --git a/Labs/Bash01.hs.enc b/Labs/Bash01.hs.enc
---deleted file mode 100644
---index 4f33a5c..0000000
---Binary files a/Labs/Bash01.hs.enc and /dev/null differ
+-@@ -1,39 +0,0 @@
+--diff --git a/ProjectAnalyze.sh b/ProjectAnalyze.sh
+--index 8cc1526..3434a7d 100755
+----- a/ProjectAnalyze.sh
+--+++ b/ProjectAnalyze.sh
+--@@ -2,6 +2,7 @@
+-- 
+-- clear
+-- 
+--+whoami
+-- date
+-- 
+-- git status
+--@@ -10,3 +11,4 @@ git diff > changes.log
+-- 
+-- grep TODO -nr * > todo.log
+-- 
+--+find . -name "*.hs" -exec ghc -fno-code {} \; 2>> error.log
+--diff --git a/changes.log b/changes.log
+--index 4189614..e69de29 100644
+----- a/changes.log
+--+++ b/changes.log
+--@@ -1,4 +0,0 @@
+---diff --git a/Labs/Bash01.hs.enc b/Labs/Bash01.hs.enc
+---deleted file mode 100644
+---index 4f33a5c..0000000
+---Binary files a/Labs/Bash01.hs.enc and /dev/null differ
+--diff --git a/todo.log b/todo.log
+--index e846c4e..db0a8d1 100644
+----- a/todo.log
+--+++ b/todo.log
+--@@ -1,3 +1,8 @@
+--+changes.log:7: grep TODO -nr * > todo.log
+--+changes.log:60:+changes.log:7: grep TODO -nr * > todo.log
+--+changes.log:61: ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
+--+changes.log:62: test:1:Eat Lunch #TODO
+--+changes.log:63: test:2:OK BYE #TODO
+-- ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
+-- test:1:Eat Lunch #TODO
+-- test:2:OK BYE #TODO
+-diff --git a/error.log b/error.log
+-index 07976c9..c2a6604 100644
+---- a/error.log
+-+++ b/error.log
+-@@ -1,12 +1,16 @@
+-+[1 of 1] Compiling Main             ( testdir/file2.hs, nothing )
+- 
+- testdir/file2.hs:6:1:
+-     parse error (possibly incorrect indentation or mismatched brackets)
+-+[1 of 1] Compiling Main             ( Labs/Bash02/Bash02.hs, nothing )
+- 
+- Labs/Bash02/Bash02.hs:1:1:
+-     The IO action ‘main’ is not defined in module ‘Main’
+-+[1 of 1] Compiling Main             ( Labs/Bash01/Bash01.hs, nothing )
+- 
+- Labs/Bash01/Bash01.hs:1:1:
+-     The IO action ‘main’ is not defined in module ‘Main’
+-+[1 of 1] Compiling Main             ( file.hs, nothing )
+- 
+- file.hs:6:1:
+-     parse error (possibly incorrect indentation or mismatched brackets)
 -diff --git a/todo.log b/todo.log
--index e846c4e..db0a8d1 100644
+-index 07fde30..0331b21 100644
 ---- a/todo.log
 -+++ b/todo.log
--@@ -1,3 +1,8 @@
--+changes.log:7: grep TODO -nr * > todo.log
--+changes.log:60:+changes.log:7: grep TODO -nr * > todo.log
--+changes.log:61: ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
--+changes.log:62: test:1:Eat Lunch #TODO
--+changes.log:63: test:2:OK BYE #TODO
-- ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
-- test:1:Eat Lunch #TODO
-- test:2:OK BYE #TODO
-diff --git a/error.log b/error.log
-index 07976c9..c2a6604 100644
---- a/error.log
-+++ b/error.log
-@@ -1,12 +1,16 @@
-+[1 of 1] Compiling Main             ( testdir/file2.hs, nothing )
- 
- testdir/file2.hs:6:1:
-     parse error (possibly incorrect indentation or mismatched brackets)
-+[1 of 1] Compiling Main             ( Labs/Bash02/Bash02.hs, nothing )
- 
- Labs/Bash02/Bash02.hs:1:1:
-     The IO action ‘main’ is not defined in module ‘Main’
-+[1 of 1] Compiling Main             ( Labs/Bash01/Bash01.hs, nothing )
- 
- Labs/Bash01/Bash01.hs:1:1:
-     The IO action ‘main’ is not defined in module ‘Main’
-+[1 of 1] Compiling Main             ( file.hs, nothing )
- 
- file.hs:6:1:
-     parse error (possibly incorrect indentation or mismatched brackets)
+-@@ -1,15 +1,5 @@
+--changes.log:15: grep TODO -nr * > todo.log
+--changes.log:32:+changes.log:7: grep TODO -nr * > todo.log
+--changes.log:33:+changes.log:60:+changes.log:7: grep TODO -nr * > todo.log
+--changes.log:34:+changes.log:61: ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
+--changes.log:35:+changes.log:62: test:1:Eat Lunch #TODO
+--changes.log:36:+changes.log:63: test:2:OK BYE #TODO
+--changes.log:37: ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
+--changes.log:38: test:1:Eat Lunch #TODO
+--changes.log:39: test:2:OK BYE #TODO
+--ProjectAnalyze.sh:12:grep TODO -nr * > todo.log
+--test:1:Eat Lunch #TODO
+--test:2:OK BYE #TODO
+--test2.txt:1:Eat Lunch 2 #TODO
+--test2.txt:2:OK BYE 2 #TODO
+--testdir/test22.txt:1:Test 22 #TODO
+-+./testdir/test22.txt:Test 22 #TODO
+-+./test:Eat Lunch #TODO
+-+./test:OK BYE #TODO
+-+./test2.txt:Eat Lunch 2 #TODO
+-+./test2.txt:OK BYE 2 #TODO
 diff --git a/todo.log b/todo.log
-index 07fde30..0331b21 100644
+index 0331b21..b7df307 100644
 --- a/todo.log
 +++ b/todo.log
-@@ -1,15 +1,5 @@
--changes.log:15: grep TODO -nr * > todo.log
--changes.log:32:+changes.log:7: grep TODO -nr * > todo.log
--changes.log:33:+changes.log:60:+changes.log:7: grep TODO -nr * > todo.log
--changes.log:34:+changes.log:61: ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
--changes.log:35:+changes.log:62: test:1:Eat Lunch #TODO
--changes.log:36:+changes.log:63: test:2:OK BYE #TODO
--changes.log:37: ProjectAnalyze.sh:11:grep TODO -nr * > todo.log
--changes.log:38: test:1:Eat Lunch #TODO
--changes.log:39: test:2:OK BYE #TODO
--ProjectAnalyze.sh:12:grep TODO -nr * > todo.log
--test:1:Eat Lunch #TODO
--test:2:OK BYE #TODO
--test2.txt:1:Eat Lunch 2 #TODO
--test2.txt:2:OK BYE 2 #TODO
--testdir/test22.txt:1:Test 22 #TODO
-+./testdir/test22.txt:Test 22 #TODO
-+./test:Eat Lunch #TODO
-+./test:OK BYE #TODO
-+./test2.txt:Eat Lunch 2 #TODO
-+./test2.txt:OK BYE 2 #TODO
+@@ -1,4 +1,6 @@
+ ./testdir/test22.txt:Test 22 #TODO
++./READMEProjectAnalyze.md:	4) Puts all lines containing #TODO listing the todos in todo.log file
++./READMEProjectAnalyze.md:	### The #TODO tasks for today can be found in todo.log
+ ./test:Eat Lunch #TODO
+ ./test:OK BYE #TODO
+ ./test2.txt:Eat Lunch 2 #TODO

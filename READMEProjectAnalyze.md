@@ -24,8 +24,12 @@ Example :
 
 	Output:
 	
-	Sat Feb 24 16:48:15 EST 2018
+	Sat Feb 24 17:34:57 EST 2018
 	User: ibrahimq
+
+	On branch master
+	Your branch is up-to-date with 'origin/master'.
+	nothing to commit, working tree clean
 
 	### Any recent changes are in the changes.log file
 
@@ -34,6 +38,5 @@ Example :
 	### Any error in haskell files can be found in error.log
 
 	Which log file do you want to see? [Type 1,2,3,q(to exit) or write their names ex: todo.log]
-
 	
 
