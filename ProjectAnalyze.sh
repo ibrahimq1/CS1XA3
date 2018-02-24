@@ -18,7 +18,7 @@ git diff > changes.log
 echo " "
 echo -e "### \e[1mThe #TODO tasks for today can be found in todo.log\e[0m"
  
-grep -r --exclude={\*.log,ProjectAnalyze.sh}  "#TODO" . > todo.log
+grep -r --exclude={\*.log,ProjectAnalyze.sh,READMEProjectAnalyze.md}  "#TODO" . > todo.log
 
 echo " "
 echo -e "### \e[1mAny error in haskell files can be found in error.log\e[0m"
