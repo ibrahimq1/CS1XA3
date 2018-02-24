@@ -1,0 +1,12 @@
+
+testdir/file2.hs:6:1:
+    parse error (possibly incorrect indentation or mismatched brackets)
+
+Labs/Bash02/Bash02.hs:1:1:
+    The IO action ‘main’ is not defined in module ‘Main’
+
+Labs/Bash01/Bash01.hs:1:1:
+    The IO action ‘main’ is not defined in module ‘Main’
+
+file.hs:6:1:
+    parse error (possibly incorrect indentation or mismatched brackets)
