@@ -1,0 +1,36 @@
+div.topbar{
+	background-color: #1e90ff;
+	text-align:center;
+	padding: 5px;
+	padding-bottom:0px;
+	font-weight: bold;
+	margin-left:0px;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	font-size:20px;
+	
+}
+div.useless{
+	display:inline;
+	list-style-type:none;
+	margin:2;
+}
+body {
+	padding-top:20px;
+	background-color: tomato;
+	color:white;
+	padding-left:200px;
+}
+
+p.footers{
+
+margin-left: 0px;	
+text-align:center;
+font-weight:bold;
+left:0;
+right:0;
+bottom:0;
+
+}
