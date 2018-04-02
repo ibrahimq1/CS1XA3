@@ -1,0 +1,377 @@
+var _user$project$KeyboardExample$scorekeep = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'background-color', _1: 'red'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '100px'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '50px'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '4px'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'left', _1: '0px'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'top', _1: '0px'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'color', _1: 'white'},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+													_1: {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'align-items', _1: 'center'},
+														_1: {
+															ctor: '::',
+															_0: {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'},
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(
+				(_elm_lang$core$Native_Utils.eq(model.counterH2, model.counterH) && _elm_lang$core$Native_Utils.eq(model.counterV, model.counterV2)) ? _elm_lang$core$Basics$toString(model.score + 1) : _elm_lang$core$Basics$toString(model.score)),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$KeyboardExample$player2 = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'background-color', _1: 'Blue'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '100px'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '100px'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '4px'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '_Tuple2',
+											_0: 'left',
+											_1: A2(
+												_elm_lang$core$Basics_ops['++'],
+												_elm_lang$core$Basics$toString(model.counterH2),
+												'px')
+										},
+										_1: {
+											ctor: '::',
+											_0: {
+												ctor: '_Tuple2',
+												_0: 'top',
+												_1: A2(
+													_elm_lang$core$Basics_ops['++'],
+													_elm_lang$core$Basics$toString(model.counterV2),
+													'px')
+											},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'color', _1: 'white'},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+													_1: {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'align-items', _1: 'center'},
+														_1: {
+															ctor: '::',
+															_0: {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'},
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Player2'),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$KeyboardExample$player1 = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#3C8D2F'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '100px'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '100px'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '4px'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '_Tuple2',
+											_0: 'left',
+											_1: A2(
+												_elm_lang$core$Basics_ops['++'],
+												_elm_lang$core$Basics$toString(model.counterH),
+												'px')
+										},
+										_1: {
+											ctor: '::',
+											_0: {
+												ctor: '_Tuple2',
+												_0: 'top',
+												_1: A2(
+													_elm_lang$core$Basics_ops['++'],
+													_elm_lang$core$Basics$toString(model.counterV),
+													'px')
+											},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'color', _1: 'white'},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+													_1: {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'align-items', _1: 'center'},
+														_1: {
+															ctor: '::',
+															_0: {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'},
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Player1'),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$KeyboardExample$background = function (content) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'background-color', _1: 'pink'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '810px'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '810px'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		content);
+};
+var _user$project$KeyboardExample$view = function (model) {
+	return _user$project$KeyboardExample$background(
+		{
+			ctor: '::',
+			_0: _user$project$KeyboardExample$player1(model),
+			_1: {
+				ctor: '::',
+				_0: _user$project$KeyboardExample$player2(model),
+				_1: {
+					ctor: '::',
+					_0: _user$project$KeyboardExample$scorekeep(model),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$KeyboardExample$checkeroutbound = function (b) {
+	return (_elm_lang$core$Native_Utils.cmp(b, 700) > 0) ? b : (b + 10);
+};
+var _user$project$KeyboardExample$checkerfunc = function (a) {
+	return (_elm_lang$core$Native_Utils.cmp(a, 10) < 0) ? a : (a - 10);
+};
+var _user$project$KeyboardExample$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		if (_p0.ctor === 'KeyMsg') {
+			var _p1 = _p0._0;
+			switch (_p1) {
+				case 39:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								counterH: _user$project$KeyboardExample$checkeroutbound(model.counterH)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 40:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								counterV: _user$project$KeyboardExample$checkeroutbound(model.counterV)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 37:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								counterH: _user$project$KeyboardExample$checkerfunc(model.counterH)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 38:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								counterV: _user$project$KeyboardExample$checkerfunc(model.counterV)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				default:
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			}
+		} else {
+			var _p2 = _p0._0;
+			switch (_p2) {
+				case 83:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								counterV2: _user$project$KeyboardExample$checkeroutbound(model.counterV2)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 65:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								counterH2: _user$project$KeyboardExample$checkerfunc(model.counterH2)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 68:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								counterH2: _user$project$KeyboardExample$checkeroutbound(model.counterH2)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 87:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								counterV2: _user$project$KeyboardExample$checkerfunc(model.counterV2)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				default:
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			}
+		}
+	});
+var _user$project$KeyboardExample$init = {
+	ctor: '_Tuple2',
+	_0: {counterV: 100, counterH: 100, counterV2: 400, counterH2: 400, score: 0},
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$KeyboardExample$Model = F5(
+	function (a, b, c, d, e) {
+		return {counterV: a, counterH: b, counterV2: c, counterH2: d, score: e};
+	});
+var _user$project$KeyboardExample$KeyMsg2 = function (a) {
+	return {ctor: 'KeyMsg2', _0: a};
+};
+var _user$project$KeyboardExample$KeyMsg = function (a) {
+	return {ctor: 'KeyMsg', _0: a};
+};
+var _user$project$KeyboardExample$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$batch(
+		{
+			ctor: '::',
+			_0: _elm_lang$keyboard$Keyboard$downs(_user$project$KeyboardExample$KeyMsg2),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$keyboard$Keyboard$downs(_user$project$KeyboardExample$KeyMsg),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$KeyboardExample$main = _elm_lang$html$Html$program(
+	{init: _user$project$KeyboardExample$init, view: _user$project$KeyboardExample$view, update: _user$project$KeyboardExample$update, subscriptions: _user$project$KeyboardExample$subscriptions})();

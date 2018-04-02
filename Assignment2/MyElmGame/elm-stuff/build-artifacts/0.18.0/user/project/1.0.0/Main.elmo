@@ -1,0 +1,292 @@
+var _user$project$Main$player2 = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'red'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '30px'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '30px'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'borderRadius', _1: '15px'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '_Tuple2',
+											_0: 'left',
+											_1: A2(
+												_elm_lang$core$Basics_ops['++'],
+												_elm_lang$core$Basics$toString(model.player2X),
+												'px')
+										},
+										_1: {
+											ctor: '::',
+											_0: {
+												ctor: '_Tuple2',
+												_0: 'top',
+												_1: A2(
+													_elm_lang$core$Basics_ops['++'],
+													_elm_lang$core$Basics$toString(model.player2Y),
+													'px')
+											},
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{ctor: '[]'});
+};
+var _user$project$Main$player = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'blue'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '30px'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '30px'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'borderRadius', _1: '15px'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '_Tuple2',
+											_0: 'left',
+											_1: A2(
+												_elm_lang$core$Basics_ops['++'],
+												_elm_lang$core$Basics$toString(model.playerX),
+												'px')
+										},
+										_1: {
+											ctor: '::',
+											_0: {
+												ctor: '_Tuple2',
+												_0: 'top',
+												_1: A2(
+													_elm_lang$core$Basics_ops['++'],
+													_elm_lang$core$Basics$toString(model.playerY),
+													'px')
+											},
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{ctor: '[]'});
+};
+var _user$project$Main$background = function (content) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'white'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		content);
+};
+var _user$project$Main$view = function (model) {
+	return _user$project$Main$background(
+		{
+			ctor: '::',
+			_0: _user$project$Main$player(model),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Main$player2(model),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Main$player2Speed = 250;
+var _user$project$Main$playerSpeed = 100;
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		if (_p0.ctor === 'Tick') {
+			var _p2 = _p0._0;
+			var move2Distance = _user$project$Main$player2Speed * _elm_lang$core$Time$inSeconds(_p2);
+			var moveDistance = _user$project$Main$playerSpeed * _elm_lang$core$Time$inSeconds(_p2);
+			var _p1 = model.playerDirection;
+			switch (_p1.ctor) {
+				case 'Left':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{playerX: model.playerX - moveDistance}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'Right':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{playerX: model.playerX + moveDistance}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'Up':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{playerY: model.playerY + moveDistance}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'Down':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{playerY: model.playerY - moveDistance}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'Left2':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{player2X: model.player2X - move2Distance}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'Right2':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{player2X: model.player2X + move2Distance}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'Up2':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{player2Y: model.player2Y + move2Distance}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				default:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{player2Y: model.player2Y - move2Distance}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+			}
+		} else {
+			var _p3 = _p0._0;
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{playerDirection: _p3, player2Direction: _p3}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		}
+	});
+var _user$project$Main$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {playerX: a, playerY: b, playerDirection: c, player2Direction: d, player2X: e, player2Y: f};
+	});
+var _user$project$Main$Down2 = {ctor: 'Down2'};
+var _user$project$Main$Up2 = {ctor: 'Up2'};
+var _user$project$Main$Right2 = {ctor: 'Right2'};
+var _user$project$Main$Left2 = {ctor: 'Left2'};
+var _user$project$Main$Down = {ctor: 'Down'};
+var _user$project$Main$Up = {ctor: 'Up'};
+var _user$project$Main$Right = {ctor: 'Right'};
+var _user$project$Main$Left = {ctor: 'Left'};
+var _user$project$Main$init = {
+	ctor: '_Tuple2',
+	_0: {playerX: 100, playerY: 100, player2X: 300, player2Y: 300, playerDirection: _user$project$Main$Right, player2Direction: _user$project$Main$Left},
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Main$ChangeDirection = function (a) {
+	return {ctor: 'ChangeDirection', _0: a};
+};
+var _user$project$Main$Tick = function (a) {
+	return {ctor: 'Tick', _0: a};
+};
+var _user$project$Main$subscriptions = function (model) {
+	var directionForKey = function (keyCode) {
+		var _p4 = keyCode;
+		switch (_p4) {
+			case 37:
+				return _user$project$Main$Left;
+			case 38:
+				return _user$project$Main$Down;
+			case 39:
+				return _user$project$Main$Right;
+			case 40:
+				return _user$project$Main$Up;
+			case 83:
+				return _user$project$Main$Up2;
+			case 65:
+				return _user$project$Main$Left2;
+			case 68:
+				return _user$project$Main$Right2;
+			case 87:
+				return _user$project$Main$Down2;
+			default:
+				return model.playerDirection;
+		}
+	};
+	return _elm_lang$core$Platform_Sub$batch(
+		{
+			ctor: '::',
+			_0: _elm_lang$animation_frame$AnimationFrame$diffs(_user$project$Main$Tick),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$keyboard$Keyboard$downs(
+					function (key) {
+						return _user$project$Main$ChangeDirection(
+							directionForKey(key));
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Main$main = _elm_lang$html$Html$program(
+	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})();

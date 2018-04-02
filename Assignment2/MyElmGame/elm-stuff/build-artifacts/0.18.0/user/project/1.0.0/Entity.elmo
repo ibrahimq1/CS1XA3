@@ -1,0 +1,4 @@
+var _user$project$Entity$Vector = F2(
+	function (a, b) {
+		return {x: a, y: b};
+	});

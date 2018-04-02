@@ -1,0 +1,50 @@
+var _user$project$Game$view = function (model) {
+	return A2(
+		_elm_lang$svg$Svg$svg,
+		{
+			ctor: '::',
+			_0: _elm_lang$svg$Svg_Attributes$width(
+				_elm_lang$core$Basics$toString(1000)),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$svg$Svg_Attributes$height(
+					_elm_lang$core$Basics$toString(300)),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: _user$project$Runner$view(model.runner),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Game$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Game$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return A2(
+			_elm_lang$core$Platform_Cmd_ops['!'],
+			model,
+			{ctor: '[]'});
+	});
+var _user$project$Game$Model = function (a) {
+	return {runner: a};
+};
+var _user$project$Game$RunnerUpdate = function (a) {
+	return {ctor: 'RunnerUpdate', _0: a};
+};
+var _user$project$Game$init = function () {
+	var _p1 = _user$project$Runner$init;
+	var runner = _p1._0;
+	var runnerCmds = _p1._1;
+	return A2(
+		_elm_lang$core$Platform_Cmd_ops['!'],
+		{runner: runner},
+		{
+			ctor: '::',
+			_0: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Game$RunnerUpdate, runnerCmds),
+			_1: {ctor: '[]'}
+		});
+}();

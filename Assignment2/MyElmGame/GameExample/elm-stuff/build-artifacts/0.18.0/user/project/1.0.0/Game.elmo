@@ -1,0 +1,104 @@
+var _user$project$Game$view = function (model) {
+	return _elm_lang$html$Html$text(
+		_elm_lang$core$Basics$toString(model));
+};
+var _user$project$Game$incrementShotsFired = function (model) {
+	return _elm_lang$core$Native_Utils.update(
+		model,
+		{shotsFired: model.shotsFired + 1});
+};
+var _user$project$Game$updateVelocity = F2(
+	function (newVelocity, model) {
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{velocity: newVelocity});
+	});
+var _user$project$Game$applyPhysics = F2(
+	function (dt, model) {
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{position: model.position + (model.velocity * dt)});
+	});
+var _user$project$Game$keyUp = F2(
+	function (keyCode, model) {
+		var _p0 = _user$project$Key$fromCode(keyCode);
+		switch (_p0.ctor) {
+			case 'ArrowLeft':
+				return A2(_user$project$Game$updateVelocity, 0, model);
+			case 'ArrowRight':
+				return A2(_user$project$Game$updateVelocity, 0, model);
+			default:
+				return model;
+		}
+	});
+var _user$project$Game$keyDown = F2(
+	function (keyCode, model) {
+		var _p1 = _user$project$Key$fromCode(keyCode);
+		switch (_p1.ctor) {
+			case 'Space':
+				return _user$project$Game$incrementShotsFired(model);
+			case 'ArrowLeft':
+				return A2(_user$project$Game$updateVelocity, -1.0, model);
+			case 'ArrowRight':
+				return A2(_user$project$Game$updateVelocity, 1.0, model);
+			default:
+				return model;
+		}
+	});
+var _user$project$Game$update = F2(
+	function (msg, model) {
+		var _p2 = msg;
+		switch (_p2.ctor) {
+			case 'TimeUpdate':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Game$applyPhysics, _p2._0, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'KeyDown':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Game$keyDown, _p2._0, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Game$keyUp, _p2._0, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+		}
+	});
+var _user$project$Game$model = {velocity: 0, position: 0, shotsFired: 0};
+var _user$project$Game$init = {ctor: '_Tuple2', _0: _user$project$Game$model, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Game$Model = F3(
+	function (a, b, c) {
+		return {velocity: a, position: b, shotsFired: c};
+	});
+var _user$project$Game$KeyUp = function (a) {
+	return {ctor: 'KeyUp', _0: a};
+};
+var _user$project$Game$KeyDown = function (a) {
+	return {ctor: 'KeyDown', _0: a};
+};
+var _user$project$Game$TimeUpdate = function (a) {
+	return {ctor: 'TimeUpdate', _0: a};
+};
+var _user$project$Game$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$batch(
+		{
+			ctor: '::',
+			_0: _elm_lang$animation_frame$AnimationFrame$diffs(_user$project$Game$TimeUpdate),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$keyboard$Keyboard$downs(_user$project$Game$KeyDown),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$keyboard$Keyboard$ups(_user$project$Game$KeyUp),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$Game$main = _elm_lang$html$Html$program(
+	{init: _user$project$Game$init, view: _user$project$Game$view, update: _user$project$Game$update, subscriptions: _user$project$Game$subscriptions})();

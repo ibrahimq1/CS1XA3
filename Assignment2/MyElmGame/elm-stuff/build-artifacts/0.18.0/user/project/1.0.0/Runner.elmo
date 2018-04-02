@@ -1,0 +1,50 @@
+var _user$project$Runner$view = function (_p0) {
+	var _p1 = _p0;
+	var _p3 = _p1.size;
+	var _p2 = _p1.position;
+	return A2(
+		_elm_lang$svg$Svg$rect,
+		{
+			ctor: '::',
+			_0: _elm_lang$svg$Svg_Attributes$x(
+				_elm_lang$core$Basics$toString(_p2.x)),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$svg$Svg_Attributes$y(
+					_elm_lang$core$Basics$toString(_p2.y)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$svg$Svg_Attributes$width(
+						_elm_lang$core$Basics$toString(_p3.x)),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$svg$Svg_Attributes$height(
+							_elm_lang$core$Basics$toString(_p3.y)),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		},
+		{ctor: '[]'});
+};
+var _user$project$Runner$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Runner$update = F2(
+	function (msg, model) {
+		var _p4 = msg;
+		return A2(
+			_elm_lang$core$Platform_Cmd_ops['!'],
+			model,
+			{ctor: '[]'});
+	});
+var _user$project$Runner$init = A2(
+	_elm_lang$core$Platform_Cmd_ops['!'],
+	{
+		position: {x: 50, y: 50},
+		size: {x: 30, y: 50}
+	},
+	{ctor: '[]'});
+var _user$project$Runner$main = _elm_lang$html$Html$program(
+	{init: _user$project$Runner$init, update: _user$project$Runner$update, subscriptions: _user$project$Runner$subscriptions, view: _user$project$Runner$view})();
+var _user$project$Runner$NoOp = {ctor: 'NoOp'};
