@@ -8,12 +8,14 @@
 			<li>Cos, Sin, Exp (natural)</li>
 			<li>Variables</li>
 			<li>Constants</li>
+			</br>
 	 <li>Can partially evaluate an expression</li>
-	 <li>Can perform partial differentiation</li>
-	 <li>Can perform some simplification of expressions</li>
-	 <li>Can parse certain strings into an expression datatype (specify required format in documentation)</li>
+	 </br><li>Can perform partial differentiation</li>
+	 </br><li>Can perform some simplification of expressions</li>
+	 </br><li>Can parse certain strings into an expression datatype (specify required format in documentation)</li>
 
-Note: All the evaluation, simplification and partDifferention are basic 1st level.
+</br>
+<p>Note: All the evaluation, simplification and partDifferention are basic 1st level.</p>
 
 
 <h1>Core Functionality Testing:</h1>
