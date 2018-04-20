@@ -1,6 +1,7 @@
-<h1>Basic Functionality:</h1>
+<h1>Haskell Math Library 2018</h1>
 
-<h3>Functionalities:</h3>
+
+<h3>Basic Functionalities:</h3>
 	- An expression datatype that can encode (at least)
 			Addition
 			Multiplication
