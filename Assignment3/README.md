@@ -28,3 +28,6 @@
 
 3) eval (Map.fromList [("x", 25), ("y", 10.45), ("z", 20)]) ((Var "x") !+ (Var "y") !+ (Var "z") !+ (Const 2) !+ (Const 3) !+ (Const 4))
 > 64.45
+
+
+Special Thanks to https://github.com/aksamitn and https://github.com/skvortv for making this possible. Cheers.
