@@ -2,12 +2,12 @@
 
 
 <h3>Basic Functionalities:</h3>
-	- An expression datatype that can encode (at least)
-			Addition
-			Multiplication
-			Cos, Sin, Exp (natural)
-			Variables
-			Constants
+	- An expression datatype that can encode:
+			1)Addition
+			2)Multiplication
+			3)Cos, Sin, Exp (natural)
+			4)Variables
+			5)Constants
 	- Can partially evaluate an expression
 	- Can perform partial differentiation
 	- Can perform some simplification of expressions
