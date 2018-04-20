@@ -3,15 +3,15 @@
 
 <h3>Basic Functionalities:</h3>
 	<li> An expression datatype that can encode:</li>
-			<li>1)Addition</li>
-			<li>2)Multiplication</li>
-			<li>3)Cos, Sin, Exp (natural)</li>
-			<li>4)Variables</li>
-			<li>5)Constants</li>
-	- <li>Can partially evaluate an expression</li>
-	- <li>Can perform partial differentiation</li>
-	- <li>Can perform some simplification of expressions</li>
-	- <li>Can parse certain strings into an expression datatype (specify required format in documentation)</li>
+			<li>Addition</li>
+			<li>Multiplication</li>
+			<li>Cos, Sin, Exp (natural)</li>
+			<li>Variables</li>
+			<li>Constants</li>
+	 <li>Can partially evaluate an expression</li>
+	 <li>Can perform partial differentiation</li>
+	 <li>Can perform some simplification of expressions</li>
+	 <li>Can parse certain strings into an expression datatype (specify required format in documentation)</li>
 
 Note: All the evaluation, simplification and partDifferention are basic 1st level.
 
