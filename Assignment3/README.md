@@ -12,7 +12,7 @@
 	- Can perform some simplification of expressions
 	- Can parse certain strings into an expression datatype (specify required format in documentation)
 
--- Note: All the evaluation, simplification and partDifferention are basic 1st level.
+<font color = "red">-- Note: All the evaluation, simplification and partDifferention are basic 1st level.</font>
 
 
 <h1>Core Functionality Testing:</h1>
