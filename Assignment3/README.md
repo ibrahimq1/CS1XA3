@@ -1,6 +1,6 @@
-Basic Functionality:
+<h1>Basic Functionality:</h1>
 
-Functionalities:
+<h3>Functionalities:</h3>
 	- An expression datatype that can encode (at least)
 			Addition
 			Multiplication
@@ -15,7 +15,7 @@ Functionalities:
 -- Note: All the evaluation, simplification and partDifferention are basic 1st level.
 
 
-Core Functionality Testing:
+<h1>Core Functionality Testing:</h1>
 
 simplify (Map.fromList [("y", 15)]) ((Var "x")  !+ (Var "y") !+ (Const 42) !+ (Const 23))
 
