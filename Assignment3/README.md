@@ -1,5 +1,5 @@
 <h1>Haskell Math Library 2018</h1>
-
+<h4>  <a href = "http://ugweb.cas.mcmaster.ca/~ibrahimq/docs/ExprDiff.html">>> Documentation <<</a>   </h4>
 
 <h3>Basic Functionalities:</h3>
 	<li> An expression datatype that can encode:</li>
