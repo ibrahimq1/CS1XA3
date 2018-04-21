@@ -25,7 +25,7 @@ sampleExpr1 :: Expr Double
 sampleExpr1 = ((var "x") !+ (var "y")) 
 
 
--- | Puts in a list 
+-- | Retrives from the list
 listToExpr1 :: [Double] -> Expr Double
 listToExpr1 [x]    = Const x
 listToExpr1 (x:xs) = Add (Const x) (listToExpr1 xs)

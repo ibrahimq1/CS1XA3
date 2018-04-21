@@ -16,16 +16,6 @@ import ExprPretty
   Stability : experimental
   Portability : POSIX
 
-
-
-  Expression Datatype
-  -------------------
-  Wraps different operations in a expression tree
-  Ops:
-    Add - standard binary addition
-    Mult - standard binary multiplication
-    Const - wrapper for a simple values
-    Var - string identifier for variables
 -}
 
 
@@ -40,11 +30,13 @@ parseExprF ss = case parse exprF "" ss of
                   Left err -> error $ show err
                   Right expr -> expr
 
--- | Double Expression types
-exprD :: Parser (Expr Double) 
+
+exprD :: Parser (Expr Double)
+-- ^ Double Expression types 
 exprD = exprVar <|> exprConstD <|> exprTrigD <|> exprOpD
--- | Float Expression types
-exprF :: Parser (Expr Float) 
+
+exprF :: Parser (Expr Float)
+-- ^ Float Expression types 
 exprF = exprVar <|> exprConstF <|> exprTrigF <|> exprOpF
 
 
