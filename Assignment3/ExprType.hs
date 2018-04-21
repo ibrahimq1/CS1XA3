@@ -4,8 +4,6 @@ import Data.List
 
 
 {-
-
-
   Module ExprType
   Expression Types
   Description : Contains a type types and methods.
@@ -38,11 +36,7 @@ data Expr a = Add (Expr a) (Expr a)
             | Var String
   deriving Eq
 
-{-
-	getVars:
-		Function that retrives variable 
-		indifiers from an Expr
--}
+-- Getting the Vars --
 
 getVars :: Expr a -> [String]
 getVars (Add e1 e2)  = getVars e1 ++ getVars e2
