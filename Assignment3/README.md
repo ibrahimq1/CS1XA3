@@ -1,5 +1,5 @@
 <h1>Haskell Math Library 2018</h1>
-
+ <a href="http://ugweb.cas.mcmaster.ca/~ibrahimq/docs" target="_blank">See the Documentation Here</a>
 
 <h3>Basic Functionalities:</h3>
 	<li> An expression datatype that can encode:</li>
@@ -21,7 +21,7 @@
 <h1>Core Functionality Testing:</h1>
 
 1) simplify (Map.fromList [("y", 15)]) ((Var "x")  !+ (Var "y") !+ (Const 42) !+ (Const 23))
-> ((((Val. 15.0)) !+ ((Var "x"))) !+ ((Val. 42.0))) !+ ((Val. 23.0))
+> ((Var "x")) !+ ((Val. 80.0))
 
 2) partDiff "x" (Mult (Var "x") (Var "y"))
 > (((Val. 1.0)) !* ((Var "y"))) !+ (((Var "x")) !* ((Val. 0.0)))
