@@ -30,4 +30,4 @@
 > 64.45
 
 
-Special Thanks to https://github.com/aksamitn and https://github.com/skvortv for making this possible. Cheers.
+Special Thanks to https://github.com/wengy12, https://github.com/aksamitn and https://github.com/skvortv for making this possible. Cheers.
