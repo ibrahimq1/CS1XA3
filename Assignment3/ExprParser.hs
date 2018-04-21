@@ -7,33 +7,44 @@ import ExprPretty
 
 
 {-
-  Class diffExpr:
-  Expression Parser
-  Description : Contains a type class and instances for
-  parsing the expressions.
+  Module: ExprParser
+  Expression Types
+  Description : Contains the parse method and algorithm.
   Copyright : (c) Quazi Rafid Ibrahim @2018
   License : WTFPL
   Maintainer : ibrahimq@mcmaster.ca
   Stability : experimental
   Portability : POSIX
 
+
+
+  Expression Datatype
+  -------------------
+  Wraps different operations in a expression tree
+  Ops:
+    Add - standard binary addition
+    Mult - standard binary multiplication
+    Const - wrapper for a simple values
+    Var - string identifier for variables
 -}
 
 
-parseExprD :: String -> Expr Double
+-- | Parse Expression for Doubles
+parseExprD :: String -> Expr Double 
 parseExprD ss = case parse exprD "" ss of
                   Left err -> error $ show err
                   Right expr -> expr
-
-parseExprF :: String -> Expr Float
+-- | Parse Expression for Floats
+parseExprF :: String -> Expr Float  
 parseExprF ss = case parse exprF "" ss of
                   Left err -> error $ show err
                   Right expr -> expr
 
-exprD :: Parser (Expr Double)
+-- | Double Expression types
+exprD :: Parser (Expr Double) 
 exprD = exprVar <|> exprConstD <|> exprTrigD <|> exprOpD
-
-exprF :: Parser (Expr Float)
+-- | Float Expression types
+exprF :: Parser (Expr Float) 
 exprF = exprVar <|> exprConstF <|> exprTrigF <|> exprOpF
 
 
@@ -41,27 +52,20 @@ exprF = exprVar <|> exprConstF <|> exprTrigF <|> exprOpF
 
 
 
-
-exprOpD :: Parser (Expr Double)
+-- | Add or Mul Reader for Parse
+exprOpD :: Parser (Expr Double) 
 exprOpD = do {
                 s <- symbol "Add" <|> symbol "Mult";
                 ss <- between (symbol "(") (symbol ")") (exprVar <|> exprConstD <|> exprOpD <|> exprOpD);
                 ss' <- between (symbol "(") (symbol ")") (exprVar <|> exprConstD <|> exprOpD <|> exprOpD);
 
-                {-
-                  This parser can only have the option of
-                  Adding or Multiplying, so it's necessary
-                  to check whether the initial input was
-                  "Add" or "Mult", and return the correct
-                  result accordingly
-                -}
                 if s == "Add" then
-                  return (Add ss ss'); -- Initial s is "Add", return Add
-                else -- The only other option is to return "Mult", since it wasn't "Add"
+                  return (Add ss ss'); 
+                else 
                   return (Mult ss ss');
               }
-
-exprTrigD :: Parser (Expr Double)
+-- | Cos or Sin Reader for Parse
+exprTrigD :: Parser (Expr Double) 
 exprTrigD = do {
                s <- symbol "Cos" <|> symbol "Sin";
                ss <- exprD;
@@ -74,8 +78,8 @@ exprTrigD = do {
 
 
 
-
-exprConstD :: Parser (Expr Double)
+-- | Const reader for parse
+exprConstD :: Parser (Expr Double) 
 exprConstD = do {
                symbol "Const";
                ss <- double;
@@ -86,7 +90,6 @@ exprConstD = do {
 -- !!!!!! EXPR PARSING FLOATS !!!!!! --
 
 {-
-  #TODO Expand me later!
   exprTrigD is a function which deals with the parsing
   of trigonometic functions.
   More specifically, it is able to parse:
@@ -94,8 +97,8 @@ exprConstD = do {
     - Cosine (Cos)
 -}
 
-
-exprOpF :: Parser (Expr Float)
+-- | Float reader for parse
+exprOpF :: Parser (Expr Float) 
 exprOpF = do {
                 s <- symbol "Add" <|> symbol "Mult";
                 ss <- between (symbol "(") (symbol ")") (exprVar <|> exprConstF <|> exprOpF);
@@ -108,13 +111,15 @@ exprOpF = do {
                   "Add" or "Mult", and return the correct
                   result accordingly
                 -}
+                
+                
                 if s == "Add" then
-                  return (Add ss ss'); -- Initial s is "Add", return Add
-                else -- The only other option is to return "Mult", since it wasn't "Add"
+                  return (Add ss ss'); 
+                else 
                   return (Mult ss ss')
               }
-
-exprTrigF :: Parser (Expr Float)
+-- | Cos or Sign Expression for floats
+exprTrigF :: Parser (Expr Float) 
 exprTrigF = do {
                s <- symbol "Cos" <|> symbol "Sin";
                ss <- between (symbol "(") (symbol ")") (exprF);
@@ -126,8 +131,8 @@ exprTrigF = do {
              }
 
 
-
-exprConstF :: Parser (Expr Float)
+-- | Constant Expression for float
+exprConstF :: Parser (Expr Float) 
 exprConstF = do {
                symbol "Const";
                ss <- float;
@@ -138,8 +143,8 @@ exprConstF = do {
 
 
 -- !!!!!! EXPR PARSING GENERALIZED !!!!!! --
-
-exprVar :: Parser (Expr a) -- Abstracted and available for use whether for float values or double
+-- | Abstracted and available for use whether for float values or double
+exprVar :: Parser (Expr a) 
 exprVar = do {
                symbol "Var";
                ss <- many1 letter;
@@ -147,7 +152,7 @@ exprVar = do {
              }
 
 
-{-Utility Combinators-}
+{- Utility Combinators -}
 
 parens :: Parser a -> Parser a
 parens p = do { char '(';

@@ -1,13 +1,8 @@
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE UndecidableInstances #-}
-module ExprDiff where
 
-import ExprType
-
-import qualified Data.Map as Map
 {-
-  Class diffExpr:
-    Differentiable Expressions
+  Module: Differentiable Expressions
   Description : Contains a type class and instances for
   differentiable expressions
   Copyright : (c) Quazi Rafid Ibrahim @2018
@@ -22,7 +17,7 @@ import qualified Data.Map as Map
   evaluating diferentiable expressions.
 
   ----------------------------------------------
-  
+
   Methods:
     eval: Takes a dictionary of variable-identifiers
           and values, and uses it to compute the Expr.
@@ -45,13 +40,18 @@ import qualified Data.Map as Map
                      additional simplification
 -}
 
+module ExprDiff where
+
+import ExprType
+
+import qualified Data.Map as Map
+
+-- | Default Methods and the DiffExpr Class
 class DiffExpr a where
   eval :: Map.Map String a -> Expr a -> a
   simplify :: Map.Map String a -> Expr a -> Expr a
   partDiff :: String -> Expr a -> Expr a
-
-
-  {- Default Methods -}
+  
 
   (!+) :: Expr a -> Expr a -> Expr a
   e1 !+ e2 = simplify (Map.fromList []) $ Add e1 e2
@@ -74,39 +74,41 @@ class DiffExpr a where
   natexp :: Expr a -- ^ Expression given
             -> Expr a -- ^ Resulting simplified NatExp Expression
   natexp e1 = simplify (Map.fromList []) $ NatExp e1   
-  -- | Takes a List of Lists and wraps it in a Matrix constructor 
 
   val :: a -> Expr a
   val x = Const x
   var :: String -> Expr a
   var x = Var x
 
-  {-
-  An instance of DiffExpr.
-  Num (+,-)
-  Methods:
-    eval: (Something..)
-    simplify: (Something..)
-    partDiff: (Something..)
-  -}
-
+  
+  
+-- | Evaluation 
 instance (Eq a, Floating a) => DiffExpr a where
-  eval vrs (Add e1 e2)  = eval vrs e1 + eval vrs e2
-  eval vrs (Mult e1 e2) = eval vrs e1 * eval vrs e2
-  eval vrs (Exp e1 e2) = eval vrs e1 ** eval vrs e2 
-  eval vrs (Cos x) =  cos (eval vrs x) 
-  eval vrs (Sin x) = sin (eval vrs x)
-  eval vrs (NatExp x) = exp (eval vrs x)
-  eval vrs (Const x) = x
-  eval vrs (Var x) = case Map.lookup x vrs of
+  -- ^ Evaluates The Parsed Addition Expression
+  eval vrs (Add e1 e2)  = eval vrs e1 + eval vrs e2 
+  -- ^ Evaluates The Parsed Mul Expression
+  eval vrs (Mult e1 e2) = eval vrs e1 * eval vrs e2 
+  -- ^ Evaluates The Parsed Expression
+  eval vrs (Exp e1 e2) = eval vrs e1 ** eval vrs e2
+  -- ^ Evaluates The Parsed Cos Expression 
+  eval vrs (Cos x) =  cos (eval vrs x)
+  -- ^ Evaluates The Parsed Sin Expression 
+  eval vrs (Sin x) = sin (eval vrs x) 
+  -- ^ Evaluates The Parsed e^x Expression
+  eval vrs (NatExp x) = exp (eval vrs x) 
+  -- ^ Evaluates The Parsed Const Expression
+  eval vrs (Const x) = x 
+  -- ^ Evaluates The Parsed Var Expression
+  eval vrs (Var x) = case Map.lookup x vrs of 
                        Just v  -> v
                        Nothing -> error "failed lookup in eval"
 
 
-  -- Part Diff --
+  -- **Part Diff 
   
-  partDiff t (Var x) | x == t = Const 1
+  partDiff t (Var x) | x == t = Const 1 
                      | otherwise = (Const 0)
+  -- | Part Diff The Parse Variable Expression
   partDiff _ (Const _) = Const 0
   partDiff t (Add e1 e2) =(Add (partDiff t e1) (partDiff t e2))
   partDiff t (Mult e1 e2) = (Add (Mult (partDiff t e1) e2) (Mult e1 (partDiff t e2)))
@@ -114,8 +116,9 @@ instance (Eq a, Floating a) => DiffExpr a where
   partDiff t (Sin x) = (Mult (partDiff t x) (Cos x))
   partDiff t (NatExp x) = Mult (NatExp x) (partDiff t x)
 
-  -- Simplify --
-  simplify vrs (Const x) = (Const x)
+  -- ***Simplify --
+  -- | Simplify The Parsed Constant Expression
+  simplify vrs (Const x) = (Const x) 
   simplify vrs (Mult (Const 0) e1) = Const 0
   simplify vrs (Mult e1 (Const 0)) = Const 0
   simplify vrs (Mult e1 (Const 1)) = simplify vrs e1
