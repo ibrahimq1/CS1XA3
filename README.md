@@ -13,7 +13,9 @@ The following Assignments are contained within the repo as-well.
 
 Assignment 1 - Script: ProjectAnalyze.sh
 
-Assignment 2 - Elm Maze Game
+Assignment 2 - Elm Maze Game [You can play the game here : <a href = "http://ugweb.cas.mcmaster.ca/~ibrahimq/MyElmGame/index.html"> Play Now! </a>]
 
 Assignment 3 - Haskell MathLibrary 
+
+[You can also see my online resume here : <a href = "http://ugweb.cas.mcmaster.ca/~ibrahimq/"> CV </a>]
 
